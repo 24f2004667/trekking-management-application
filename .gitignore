@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+venv/
+env/
+backend/instance/
+celerybeat-schedule*
+.DS_Store
+*.log
