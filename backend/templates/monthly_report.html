@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Monthly Activity Report</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:20px;">
+
+  <div style="max-width:600px; margin:auto; background:white; border:1px solid #ddd;">
+
+    <!-- Header -->
+    <div style="background:#0f766e; color:white; padding:15px;">
+      <h2 style="margin:0;">SafarNama Team</h2>
+    </div>
+
+    <!-- Content -->
+    <div style="padding:20px;">
+
+      <h3 style="margin-top:0;">Monthly Report - {{ month_name }}</h3>
+
+      <p>
+        Hello Admin,
+      </p>
+
+      <p>
+        Here is the monthly activity report for {{ month_name }}.
+      </p>
+
+      <!-- Summary -->
+      <table border="1" cellpadding="8" cellspacing="0" width="100%" style="border-collapse:collapse; margin-bottom:25px;">
+        <tr style="background:#f2f2f2;">
+          <th align="left">Summary</th>
+          <th align="left">Count</th>
+        </tr>
+        <tr>
+          <td>Total Treks Conducted</td>
+          <td>{{ total_treks }}</td>
+        </tr>
+        <tr>
+          <td>Active Trekkers</td>
+          <td>{{ total_users }}</td>
+        </tr>
+      </table>
+
+      <!-- Top Treks -->
+      <h3>Top 3 Most Booked Treks</h3>
+
+      {% if top_treks %}
+
+      <table border="1" cellpadding="8" cellspacing="0" width="100%" style="border-collapse:collapse;">
+        <tr style="background:#f2f2f2;">
+          <th align="left">Trek Name</th>
+          <th align="center">Bookings</th>
+        </tr>
+
+        {% for t in top_treks %}
+        <tr>
+          <td>{{ t.name }}</td>
+          <td align="center">{{ t.bookings }}</td>
+        </tr>
+        {% endfor %}
+
+      </table>
+
+      {% else %}
+
+      <p>No bookings were made this month.</p>
+
+      {% endif %}
+
+      <br>
+
+      <p>
+        Regards,<br>
+        SafarNama Team
+      </p>
+
+    </div>
+
+    <!-- Footer -->
+    <div style="padding:12px; text-align:center; font-size:12px; color:#666; border-top:1px solid #ddd;">
+      This is an automatically generated email.
+    </div>
+
+  </div>
+
+</body>
+</html>
